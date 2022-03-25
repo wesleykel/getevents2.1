@@ -4,7 +4,7 @@ import { useState , useEffect} from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
 import { db } from '../../firebase'
-import { doc, setDoc,arrayUnion,arrayRemove, updateDoc } from "firebase/firestore"; 
+import { doc, setDoc/*arrayUnion,arrayRemove, updateDoc*/ } from "firebase/firestore"; 
 
 
 
