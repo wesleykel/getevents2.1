@@ -1,0 +1,44 @@
+.wrapper{
+
+    border: 1px  solid green;
+
+
+}
+
+.searchForm{
+
+    border: 2px  solid pink;
+    width: fit-content;
+    margin: 0 auto;
+    padding-top: 2rem;
+
+}
+
+.banner{
+
+
+    width: 70em;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.picContainer{
+    border: 1px  solid green;
+    width: fit-content;
+    margin: 0 auto;
+
+}
+
+.noBanner{
+
+    display: none;
+}
+
+.grid{
+padding-top: 3rem;
+display:flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+gap:3rem
+}

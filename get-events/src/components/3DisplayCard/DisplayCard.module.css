@@ -1,0 +1,20 @@
+.wrapper{
+
+
+    border: 1px solid red;
+    width: fit-content;
+}
+
+.image{
+
+height:15rem;
+    width:28rem;
+}
+
+.textGrid{
+
+
+    border:1px solid blue;
+    display:grid;
+    gap:1rem;
+}
