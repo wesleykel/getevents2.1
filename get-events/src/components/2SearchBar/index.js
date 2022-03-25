@@ -114,7 +114,7 @@ useEffect(()=>{
 
 addToFavs()
 
-
+ // eslint-disable-next-line react-hooks/exhaustive-deps
 },[favObject])
 
   
@@ -152,6 +152,7 @@ if(event === ""){
 }
 
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[event])
 
 
