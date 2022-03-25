@@ -3,7 +3,8 @@ import style from "./SearchBar.module.css"
 import { useState , useEffect} from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
-
+import { db } from '../../firebase'
+import { doc, setDoc,arrayUnion,arrayRemove, updateDoc } from "firebase/firestore"; 
 
 
 
@@ -15,7 +16,7 @@ const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
 const [favList, setFavList] = useState([])
 const [favObject, setFavObj] = useState({link:"",image:"" })
-
+const [emptyArray, SetemptyArray] = useState([])
 
   
       // console.log(process.env.REACT_APP_APIKEY) 
@@ -81,7 +82,7 @@ if(event === "" || location === ""){
 
     } 
 
-    function addToFavs(e){
+  async function addToFavs(e){
        // e.preventDefault()
         
 
@@ -90,11 +91,18 @@ if(event === "" || location === ""){
         console.log(e.target.dataset.link) */
        
         setFavList([...favList , favObject])
+        SetemptyArray([...emptyArray ,favObject])
+        await setDoc(doc(db, "favourites", "new2"),{
+
+    favs:favObject ,
+
+        });
     
      
                 }
 
-            function updateFavs(e){
+
+       async function updateFavs(e){
     setFavObj({link:e.target.dataset.link,image:e.target.dataset.image,text:e.target.dataset.text}) 
 
 
