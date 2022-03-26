@@ -5,7 +5,7 @@ import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
 
 
-const backEndURL = process.env.REACT_APP_BACKENDURL
+//const backEndURL = process.env.REACT_APP_BACKENDURL
 
 const Searchbar = () => {
     
@@ -103,12 +103,18 @@ if(event === "" || location === ""){
     setFavText(e.target.dataset.text) 
     setFavImage(e.target.dataset.image)
     setFavLink(e.target.dataset.link)
-const newFavourite = { favImage, favLink, favText}
-
+const newPost = { favImage, favLink, favText}
+console.log(newPost)
 fetch(`https://get-events2-1.herokuapp.com/favourites`, {
 method: "POST",
 headers:{"Content-Type": "application/json"},
-body: JSON.stringify(newFavourite)
+body: JSON.stringify({
+    link:`${favLink}`,
+    image:`${favImage}`,
+   text:`${favText}`,
+   index:0
+
+})
 
 
 }).then(()=>{
@@ -118,7 +124,7 @@ body: JSON.stringify(newFavourite)
                 }
 
 
-//console.log(favText)
+
 /*useEffect(()=>{
 
 addToFavs()
