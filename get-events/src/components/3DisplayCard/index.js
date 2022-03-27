@@ -25,7 +25,7 @@ const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImag
     {text}
 </div>
 <a href={link} > click to purchase tickets</a>
-<button data-text={valueText} data-image={valueImage} data-link={valuelink}  onClick={save}>Add to Favourites</button>
+<button data-text={valueText} data-image={valueImage} data-link={valuelink} type='submit' onClick={save}>Add to Favourites</button>
 </div>
 {/*onChange={save} */}
 
