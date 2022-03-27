@@ -1,11 +1,10 @@
 import React from 'react'
 import style from "./SearchBar.module.css"
-import { useState , useEffect} from 'react'
+import { useState } from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
 
 
-//const backEndURL = process.env.REACT_APP_BACKENDURL
 
 const Searchbar = () => {
     
@@ -13,19 +12,11 @@ const  [location ,setLocation] = useState("")
 const  [event , setEvent] = useState("")
 const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
-//const [favList, setFavList] = useState([])
-//const [favObject, setFavObj] = useState({link:"",image:"" })
-//const [emptyArray, SetemptyArray] = useState([])
-const [favLink , setFavLink] = useState("")
-const [favText , setFavText] = useState("")
-const [favImage , setFavImage] = useState("")
 
-  
-      // console.log(process.env.REACT_APP_APIKEY) 
     
     
     function getLocation(e){
-        e.preventDefault()
+       
 
 setLocation(e.target.value)
 
@@ -33,85 +24,49 @@ setLocation(e.target.value)
 
     }
     function getEvent(e){
-        e.preventDefault()
+        
 setEvent(e.target.value)
         
         
             }
 
 
-
-            
-
-    
-    function submitInfo(e){
-        e.preventDefault()
+        
+const fetchPost = async (e)=>{
+e.preventDefault()
 if(event === "" || location === ""){
 
 
     console.log("please complete form")
 }else{
-
-        console.log(event)
-        console.log(location)
-  //setChange(event)
-
-  
-
- fetchPost()
-  setEvent("")
- setLocation("")
- if(change.length > 0 ){
-    setActive(false) 
+    const response = await fetch (`https://app.ticketmaster.com/discovery/v2/events?city=${location}&keyword=${event}&apikey=${process.env.REACT_APP_APIKEY}`)
+    const data = await response.json()
 
 
 
-
-  }
-  
-
-
-  console.log( change)
-
-
+setChange(data._embedded.events)    
+setLocation("")
+setEvent("")
+setActive(false)
  
-
-       
-
 }
 
+}
+console.log(change)
 
 
-    } 
-
-  /*async function addToFavs(e){
-       // e.preventDefault()
-        
-
-        /*console.log(e.target.dataset.text)
-        console.log(e.target.dataset.image)
-        console.log(e.target.dataset.link) */
-       
-        //setFavList([...favList , favObject])
-        //SetemptyArray([...emptyArray ,favObject])
+  
+async function updateFavs(e){
       
-     
-                
+ 
 
-
-       async function updateFavs(e){
-    setFavText(e.target.dataset.text) 
-    setFavImage(e.target.dataset.image)
-    setFavLink(e.target.dataset.link)
-const newPost = { favImage, favLink, favText}
-console.log(newPost)
 fetch(`https://get-events2-1.herokuapp.com/favourites`, {
 method: "POST",
 headers:{"Content-Type": "application/json"},
 body: JSON.stringify({
-    link:`${favLink}`,
-    image:`${favImage}`,
-   text:`${favText}`,
+    link:e.target.dataset.link,
+    image:e.target.dataset.image,
+   text:e.target.dataset.text,
    index:0
 
 })
@@ -121,65 +76,8 @@ body: JSON.stringify({
 
   console.log("new fav added")  
 })
+
                 }
-
-
-
-/*useEffect(()=>{
-
-addToFavs()
-
- // eslint-disable-next-line react-hooks/exhaustive-deps
-},[favObject])*/
-
-  
-
-    
-        
-
-
-   
-        //console.log(favList)
-
-        
-  
-
-    const fetchPost = async ()=>{
-
-        const response = await fetch (`https://app.ticketmaster.com/discovery/v2/events?city=${location}&keyword=${event}&apikey=${process.env.REACT_APP_APIKEY}`)
-        const data = await response.json()
-
-
-
-     setChange(data._embedded.events)    
-        
-
-    }
-
-useEffect(()=>{
-if(event === ""){
-
-    return
-}else{
-
-    fetchPost()
-
-}
-
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[event])
-
-
-console.log(change)
-
-
-
-   
-
-   
-    
-    
     
     
     return (
@@ -196,7 +94,7 @@ Event:
          <input type="text" onChange={getEvent} value={event} />  
 </label>  
 
- <button type='submit'onClick={submitInfo} >Submit</button>
+ <button type='submit'onClick={fetchPost} >Submit</button>
 
 
 
@@ -204,7 +102,7 @@ Event:
 
 
 
-        </form>
+       </form>
 <div className={style.picContainer}>
         <img  src={flyer}  alt="dancingCrowd" className={isActive ? style.banner:style.noBanner}></img>
      </div>
