@@ -3,10 +3,9 @@ import style from "./SearchBar.module.css"
 import { useState , useEffect} from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
-import { db } from '../../firebase'
-import { doc, setDoc/*arrayUnion,arrayRemove, updateDoc*/ } from "firebase/firestore"; 
 
 
+//const backEndURL = process.env.REACT_APP_BACKENDURL
 
 const Searchbar = () => {
     
@@ -14,9 +13,12 @@ const  [location ,setLocation] = useState("")
 const  [event , setEvent] = useState("")
 const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
-const [favList, setFavList] = useState([])
-const [favObject, setFavObj] = useState({link:"",image:"" })
-const [emptyArray, SetemptyArray] = useState([])
+//const [favList, setFavList] = useState([])
+//const [favObject, setFavObj] = useState({link:"",image:"" })
+//const [emptyArray, SetemptyArray] = useState([])
+const [favLink , setFavLink] = useState("")
+const [favText , setFavText] = useState("")
+const [favImage , setFavImage] = useState("")
 
   
       // console.log(process.env.REACT_APP_APIKEY) 
@@ -82,7 +84,7 @@ if(event === "" || location === ""){
 
     } 
 
-  async function addToFavs(e){
+  /*async function addToFavs(e){
        // e.preventDefault()
         
 
@@ -90,32 +92,45 @@ if(event === "" || location === ""){
         console.log(e.target.dataset.image)
         console.log(e.target.dataset.link) */
        
-        setFavList([...favList , favObject])
-        SetemptyArray([...emptyArray ,favObject])
-        await setDoc(doc(db, "favourites", "new2"),{
-
-    favs:favObject ,
-
-        });
-    
+        //setFavList([...favList , favObject])
+        //SetemptyArray([...emptyArray ,favObject])
+      
      
-                }
+                
 
 
        async function updateFavs(e){
-    setFavObj({link:e.target.dataset.link,image:e.target.dataset.image,text:e.target.dataset.text}) 
+    setFavText(e.target.dataset.text) 
+    setFavImage(e.target.dataset.image)
+    setFavLink(e.target.dataset.link)
+const newPost = { favImage, favLink, favText}
+console.log(newPost)
+fetch(`https://get-events2-1.herokuapp.com/favourites`, {
+method: "POST",
+headers:{"Content-Type": "application/json"},
+body: JSON.stringify({
+    link:`${favLink}`,
+    image:`${favImage}`,
+   text:`${favText}`,
+   index:0
+
+})
 
 
+}).then(()=>{
+
+  console.log("new fav added")  
+})
                 }
 
 
 
-useEffect(()=>{
+/*useEffect(()=>{
 
 addToFavs()
 
  // eslint-disable-next-line react-hooks/exhaustive-deps
-},[favObject])
+},[favObject])*/
 
   
 
@@ -123,8 +138,8 @@ addToFavs()
         
 
 
-        console.log(favObject)
-        console.log(favList)
+   
+        //console.log(favList)
 
         
   
