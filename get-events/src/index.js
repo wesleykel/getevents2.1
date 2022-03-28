@@ -16,7 +16,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="dev-z2ruoaqn.eu.auth0.com"
     clientId="PwhMCppQLrysfIe4XHFlDMkr2BzaOefZ"
-    redirectUri={`${window.location.origin}/favourites`}
+    redirectUri={`${window.location.origin}`}
   >
   <Routes>
    <Route path="/" element={<App />}/>
