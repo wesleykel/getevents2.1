@@ -3,17 +3,19 @@ import style from "./SearchBar.module.css"
 import { useState } from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
-
+//import { useNavigate , Redirect } from "react-router-dom"
 
 
 const Searchbar = () => {
+
     
 const  [location ,setLocation] = useState("London") 
 const  [event , setEvent] = useState("Classical")
 const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
-
-    
+//let  navigate = useNavigate()
+ 
+ 
     
 function getLocation(e){
        
@@ -66,13 +68,14 @@ body: JSON.stringify({
     image:e.target.dataset.image,
    text:e.target.dataset.text,
    index:0
-
+  
 })
 
 
 }).then(()=>{
-
+//console.log(navigate)
   console.log("new fav added")  
+return 
 })
 
                 }

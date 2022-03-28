@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from '../components/4Navbar'
+import { withAuthenticationRequired } from '@auth0/auth0-react'
+
 const Favourites = () => {
     return (
         <div>
@@ -9,4 +11,4 @@ const Favourites = () => {
     )
 }
 
-export default Favourites
+export default  withAuthenticationRequired(Favourites, {onRedirecting:()=> <div>Please login</div>})
