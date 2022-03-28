@@ -1,0 +1,8 @@
+.wrapper{
+
+    border:1px springgreen solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap:2rem
+}
