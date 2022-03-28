@@ -16,7 +16,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="dev-z2ruoaqn.eu.auth0.com"
     clientId="PwhMCppQLrysfIe4XHFlDMkr2BzaOefZ"
-    redirectUri={`${window.location.origin}/favourites`||`https://get-events.netlify.app/favourites` }
+    redirectUri={`https://get-events.netlify.app/favourites` }
   >
   <Routes>
    <Route path="/" element={<App />}/>
