@@ -4,15 +4,18 @@ import { useState } from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
 //import { useNavigate , Redirect } from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react";
+import favourites from '../../routes/favourites'
 
 
 const Searchbar = () => {
 
-    
+const {user}= useAuth0()  
 const  [location ,setLocation] = useState("London") 
 const  [event , setEvent] = useState("Classical")
 const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
+const [buttonText, setButtonText]=useState("Add to favourites")
 //let  navigate = useNavigate()
  
  
@@ -32,6 +35,7 @@ setEvent(e.target.value)
 
         
 const fetchPost = async (e)=>{
+ 
 e.preventDefault()
 if(event === "" || location === ""){
 
@@ -58,7 +62,10 @@ console.log(change)
   
 async function updateFavs(e){
       
- 
+ if(!user){
+setButtonText("Please login to save favourites")
+    return
+ }
 
 fetch(`https://get-events2-1.herokuapp.com/favourites`, {
 method: "POST",
@@ -67,13 +74,13 @@ body: JSON.stringify({
     link:e.target.dataset.link,
     image:e.target.dataset.image,
    text:e.target.dataset.text,
-   index:0
+ name:user.nickname
   
 })
 
 
 }).then(()=>{
-//console.log(navigate)
+console.log(user.nickname)
   console.log("new fav added")  
 return 
 })
@@ -109,7 +116,7 @@ Event:
      </div>
       <div className={style.grid}>
        {change.map((item,index)=>{
-        return <DisplayCard  key={index} valueText={item.name} valueImage={item.images[1].url} valuelink={item.url} other={item.url}  save={updateFavs} link={item.url} text={item.name} picture={item.images[1].url}/>
+        return <DisplayCard buttonText={buttonText}  key={index} valueText={item.name} valueImage={item.images[1].url} valuelink={item.url} other={item.url}  save={updateFavs} link={item.url} text={item.name} picture={item.images[1].url}/>
 
        })}
        </div>
