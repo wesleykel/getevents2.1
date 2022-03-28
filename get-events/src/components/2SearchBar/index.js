@@ -8,27 +8,24 @@ import DisplayCard from '../3DisplayCard'
 
 const Searchbar = () => {
     
-const  [location ,setLocation] = useState("") 
-const  [event , setEvent] = useState("")
+const  [location ,setLocation] = useState("London") 
+const  [event , setEvent] = useState("Classical")
 const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
 
     
     
-    function getLocation(e){
+function getLocation(e){
        
-
 setLocation(e.target.value)
 
-
-
     }
-    function getEvent(e){
+function getEvent(e){
         
 setEvent(e.target.value)
         
         
-            }
+     }
 
 
         
@@ -40,6 +37,7 @@ if(event === "" || location === ""){
     console.log("please complete form")
 }else{
     const response = await fetch (`https://app.ticketmaster.com/discovery/v2/events?city=${location}&keyword=${event}&apikey=${process.env.REACT_APP_APIKEY}`)
+  
     const data = await response.json()
 
 
@@ -107,8 +105,8 @@ Event:
         <img  src={flyer}  alt="dancingCrowd" className={isActive ? style.banner:style.noBanner}></img>
      </div>
       <div className={style.grid}>
-       {change.map((item)=>{
-        return <DisplayCard valueText={item.name} valueImage={item.images[1].url} valuelink={item.url} other={item.url}  save={updateFavs} link={item.url} text={item.name} picture={item.images[1].url}/>
+       {change.map((item,index)=>{
+        return <DisplayCard  key={index} valueText={item.name} valueImage={item.images[1].url} valuelink={item.url} other={item.url}  save={updateFavs} link={item.url} text={item.name} picture={item.images[1].url}/>
 
        })}
        </div>
