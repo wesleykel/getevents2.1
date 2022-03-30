@@ -10,7 +10,7 @@ import UserProfile from "../5UserProfile";
 const Navbar = () => {
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
-    const {user, isAuthenticated, isLoading}= useAuth0()
+    const {user}= useAuth0()
     return (
         <div >
     

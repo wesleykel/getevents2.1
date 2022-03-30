@@ -19,6 +19,6 @@ const NewModal = () => {
       </Modal>
     </div>
   );
-};
+  };
 
 export default NewModal
