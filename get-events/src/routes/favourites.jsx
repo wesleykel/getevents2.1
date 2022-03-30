@@ -11,7 +11,7 @@ import FavDisplayCard from '../components/7FavDisplayCard';
 const Favourites = () => {
     
   const [userFavourite ,setUserFavourites] =useState([])
-  const [refresh , setRefresh ] = useState("")
+  
     const { user }= useAuth0()  
   
 async  function fetchResults(){
@@ -29,7 +29,7 @@ useEffect(()=>{
 fetchResults()
 
 // eslint-disable-next-line react-hooks/exhaustive-deps
-   },[refresh]) 
+   },[]) 
 
 async function deleteFavourite(e){
 let deletedUser = e.target.dataset.id
