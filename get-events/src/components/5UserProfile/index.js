@@ -7,7 +7,7 @@ const UserProfile = () => {
     const {user, isAuthenticated, isLoading}= useAuth0()
     if(isLoading){
 
-        return<div>Loading...</div>
+        return<div>Press Log in to continue</div>
     }
     console.log(user)
     return (

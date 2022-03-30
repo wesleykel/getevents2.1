@@ -8,6 +8,7 @@ import { useEffect , useState } from 'react';
 import FavDisplayCard from '../components/7FavDisplayCard';
 
 
+
 const Favourites = () => {
     
   const [userFavourite ,setUserFavourites] =useState([])
@@ -43,15 +44,17 @@ headers:{"Content-Type": "application/json"},
 .then(response => response.json());
 setUserFavourites(userFavourite.filter(favourite=> favourite._id !== deletedUser))
 
-}
-    
-    
+} 
+
+
+     
     return (
         <div>
         <Title/>
         <Navbar/>
 
          <h1 className={style.heading}>Your Favourites</h1> 
+         
               <div className={style.flex}>
          {userFavourite.map((items, index)=>{
            

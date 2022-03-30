@@ -10,6 +10,7 @@ import UserProfile from "../5UserProfile";
 const Navbar = () => {
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
+    const {user}= useAuth0()
     return (
         <div >
     
@@ -19,8 +20,8 @@ const Navbar = () => {
 
         <Link to="/">Home</Link>  
         <Link to="/favourites"> Your Favourites</Link>
-        <button onClick={() => loginWithRedirect()}>Log In</button>
-        <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out </button>
+       {!user === true ? <button onClick={() => loginWithRedirect()}>Log In</button> : <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out </button>}
+   
 
    </div>
    </nav>  
