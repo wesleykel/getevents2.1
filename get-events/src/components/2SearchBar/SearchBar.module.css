@@ -17,10 +17,12 @@
 .banner{
 
 
-    width: 70em;
+    width: 100vw;
     margin: 0 auto;
     height: 100vh;
 }
+
+
 
 .picContainer{
     border: 1px  solid green;
@@ -42,3 +44,4 @@ flex-wrap: wrap;
 justify-content: center;
 gap:3rem
 }
+

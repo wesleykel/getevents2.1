@@ -9,6 +9,7 @@ import SearchBarResults from '../6SearchResultsBar'
 //import favourites from '../../routes/favourites'
 
 
+
 const Searchbar = () => {
 
 const {user}= useAuth0()  
@@ -126,11 +127,11 @@ Event:
 
       <SearchBarResults message={displayMessage}/> 
 <div className={style.picContainer}>
-        <img  src={flyer}  alt="dancingCrowd" className={isActive? style.banner:style.noBanner}></img>
+        <img  src={flyer}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
      </div>
       <div className={style.grid}>
        {change.map((item,index)=>{
-        return <DisplayCard buttonText={buttonText}  key={index} valueText={item.name} valueImage={item.images[1].url} valuelink={item.url} other={item.url}  save={updateFavs} link={item.url} text={item.name} picture={item.images[1].url}/>
+        return <DisplayCard hasUser={!user} buttonText={buttonText}  key={index} valueText={item.name} valueImage={item.images[1].url} valuelink={item.url} other={item.url}  save={updateFavs} link={item.url} text={item.name} picture={item.images[1].url}/>
 
        })}
        </div>

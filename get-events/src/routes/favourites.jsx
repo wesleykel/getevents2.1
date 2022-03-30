@@ -6,6 +6,7 @@ import style from "./Favourites.module.css"
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect , useState } from 'react';
 import FavDisplayCard from '../components/7FavDisplayCard';
+import NoFavSaved from '../components/8NoFavouritesSaved'
 
 
 const Favourites = () => {
@@ -43,15 +44,17 @@ headers:{"Content-Type": "application/json"},
 .then(response => response.json());
 setUserFavourites(userFavourite.filter(favourite=> favourite._id !== deletedUser))
 
-}
-    
-    
+} 
+
+
+     
     return (
         <div>
         <Title/>
         <Navbar/>
 
          <h1 className={style.heading}>Your Favourites</h1> 
+         
               <div className={style.flex}>
          {userFavourite.map((items, index)=>{
            

@@ -1,9 +1,10 @@
 import React from 'react'
+import NewModal from '../9ReactModal'
 import style from "./DisplayCard.module.css"
 
 
 
-const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImage,  valueText,buttonText}) => {
+const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImage,  valueText,buttonText, hasUser}) => {
     
     
 
@@ -25,7 +26,7 @@ const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImag
     {text}
 </div>
 <a href={link} rel="noreferrer" target="_blank" > click to purchase tickets</a>
-<button data-text={valueText} data-image={valueImage} data-link={valuelink} type='submit' onClick={save}>{buttonText}</button>
+{hasUser === true?<NewModal/>:<button data-text={valueText} data-image={valueImage} data-link={valuelink} type='submit' onClick={save}>{buttonText}</button>}
 </div>
 {/*onChange={save} */}
 
