@@ -18,7 +18,7 @@ const Navbar = () => {
             <div className={style.wrapper}>
 
         <Link to="/">Home</Link>  
-        <Link to="/favourites">Favourites</Link>
+        <Link to="/favourites"> Your Favourites</Link>
         <button onClick={() => loginWithRedirect()}>Log In</button>
         <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out </button>
 
