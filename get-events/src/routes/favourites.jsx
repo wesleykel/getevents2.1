@@ -6,7 +6,7 @@ import style from "./Favourites.module.css"
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect , useState } from 'react';
 import FavDisplayCard from '../components/7FavDisplayCard';
-import NoFavSaved from '../components/8NoFavouritesSaved'
+
 
 
 const Favourites = () => {
