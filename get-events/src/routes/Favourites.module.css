@@ -1,0 +1,16 @@
+.flex{
+
+    padding-top: 3rem;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:3rem
+
+}
+
+.heading{
+
+
+    text-align: center;
+}

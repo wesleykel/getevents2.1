@@ -6,3 +6,8 @@
     justify-content: flex-end;
     gap:2rem
 }
+
+.nav{
+border:1px solid blue;
+
+}

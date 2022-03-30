@@ -1,9 +1,9 @@
 import React from 'react'
-import style from "./DisplayCard.module.css"
+import style from "./FavDisplayCard.module.css"
 
 
 
-const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImage,  valueText,buttonText}) => {
+const FavDisplayCard = ({picture, heading , text , link, deleteFav ,valuelink, valueImage,  valueText,buttonText, valueId}) => {
     
     
 
@@ -12,7 +12,7 @@ const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImag
 
 
   return ( <div className={style.wrapper} >
-        <img className={style.image} alt="event" src={picture}></img> 
+ <img className={style.image} alt="event" src={picture}></img> 
         <div className={style.textWrapper}>
 
 <div className={style.heading}>
@@ -25,7 +25,7 @@ const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImag
     {text}
 </div>
 <a href={link} rel="noreferrer" target="_blank" > click to purchase tickets</a>
-<button data-text={valueText} data-image={valueImage} data-link={valuelink} type='submit' onClick={save}>{buttonText}</button>
+<button data-id={valueId} data-text={valueText} data-image={valueImage} data-link={valuelink} type='submit' onClick={deleteFav}>{buttonText}</button>
 </div>
 {/*onChange={save} */}
 
@@ -55,4 +55,4 @@ const DisplayCard = ({picture, heading , text , link, save ,valuelink, valueImag
   
 }
 
-export default DisplayCard
+export default FavDisplayCard
