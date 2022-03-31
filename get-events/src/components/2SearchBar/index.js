@@ -3,10 +3,10 @@ import style from "./SearchBar.module.css"
 import { useState } from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
-//import { useNavigate , Redirect } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react";
 import SearchBarResults from '../6SearchResultsBar'
-//import favourites from '../../routes/favourites'
+import AddedToFavouriteDisplay from '../10AddedFavourite'
+
 
 
 
@@ -19,9 +19,11 @@ const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
 const [buttonText, setButtonText]=useState("Add to favourites")
 const [displayMessage, setDisplayMessage] =useState("")
-//let  navigate = useNavigate()
+const [buttonValue ,setButtonValue] = useState(true)
+const [savedMessage ,setSavedMessage] =useState("")
+
  
- 
+
     
 function getLocation(e){
       
@@ -57,7 +59,7 @@ return
 
   }
 setChange(data._embedded.events)    
-//setLocation("")
+
 setEvent("")
 setActive(false)
  setDisplayMessage(` Results for your search : ${location} and ${event}`)
@@ -68,9 +70,7 @@ setActive(false)
 console.log(location)
 console.log(event)
 
-/*useEffect(()=>{
-   fetchPost() 
-},[])*/
+
 
   
 
@@ -94,14 +94,16 @@ body: JSON.stringify({
 
 
 }).then(()=>{
-console.log(user.nickname)
+setSavedMessage(e.target.dataset.text)
+setButtonValue(false)
+setTimeout(() => {  setButtonValue(true); }, 3000)
   console.log("new fav added")  
 return 
 })
 
                 }
     
-    
+  console.log(buttonValue)  
     return (
          <div className={style.wrapper}>
          <form className={style.searchForm}>
@@ -121,12 +123,12 @@ Event:
 
 
 
-
+  <SearchBarResults message={displayMessage}/> 
 
 
        </form>
 
-      <SearchBarResults message={displayMessage}/> 
+  {(buttonValue === true)?<div className={style.emptyDivPadding}></div> :<AddedToFavouriteDisplay favToAdded={savedMessage}></AddedToFavouriteDisplay> }
 <div className={style.picContainer}>
        <img  src={flyer}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
      </div>
