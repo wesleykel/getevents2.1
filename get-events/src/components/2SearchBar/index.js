@@ -1,6 +1,6 @@
 import React from 'react'
 import style from "./SearchBar.module.css"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
 //import { useNavigate , Redirect } from "react-router-dom"
