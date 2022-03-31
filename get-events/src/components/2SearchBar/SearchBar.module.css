@@ -1,17 +1,25 @@
 .wrapper{
 
-    border: 1px  solid green;
+    /*border: 1px  solid green;*/
 
 
 }
 
 .searchForm{
 
-    border: 2px  solid pink;
-    width: fit-content;
+    border: 2px  solid green;
+   padding: 2em;
+    border-radius: 10px;
+    width: 50vw;
+  
     margin: 0 auto;
     padding-top: 2rem;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: wrap;
+    align-items: baseline;
+    gap:3em;
 }
 
 .banner{
@@ -25,7 +33,7 @@
 
 
 .picContainer{
-    border: 1px  solid green;
+   /* border: 1px  solid green;*/
     width: fit-content;
     margin: 0 auto;
 
@@ -35,6 +43,8 @@
 
     display: none;
 }
+
+
 
 .grid{
 padding-top: 3rem;

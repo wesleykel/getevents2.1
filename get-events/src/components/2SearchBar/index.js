@@ -6,8 +6,8 @@ import DisplayCard from '../3DisplayCard'
 import { useAuth0 } from "@auth0/auth0-react";
 import SearchBarResults from '../6SearchResultsBar'
 import AddedToFavouriteDisplay from '../10AddedFavourite'
-
-
+import { Input } from '@chakra-ui/react'
+import { Button, ButtonGroup } from '@chakra-ui/react'
 
 
 const Searchbar = () => {
@@ -109,25 +109,25 @@ return
          <form className={style.searchForm}>
         
          <label>
-Location:
-        <input  type="text" onChange={getLocation} value={location} />  
+City:
+        <Input size='sm'  htmlSize={20} width='auto' placeholder='Search for your city'    type="text" onChange={getLocation} value={location} />  
          </label>   
 
          <label>
-Event:
-         <input type="text" onChange={getEvent} value={event} />  
+Event or Artist:
+         <Input size='sm'  htmlSize={20} width='auto' placeholder='Search for an artist'  type="text" onChange={getEvent} value={event} />  
 </label>  
 
- <button type='submit'onClick={fetchPost} >Submit</button>
+ <Button colorScheme='green' size="md" type='submit'onClick={fetchPost} >Submit</Button>
 
 
 
 
-  <SearchBarResults message={displayMessage}/> 
 
 
        </form>
 
+  <SearchBarResults message={displayMessage}/> 
   {(buttonValue === true)?<div className={style.emptyDivPadding}></div> :<AddedToFavouriteDisplay favToAdded={savedMessage}></AddedToFavouriteDisplay> }
 <div className={style.picContainer}>
        <img  src={flyer}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>

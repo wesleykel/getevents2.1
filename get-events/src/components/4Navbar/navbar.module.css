@@ -1,13 +1,22 @@
 .wrapper{
 
-    border:1px springgreen solid;
+    /*border:1px springgreen solid;*/
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    gap:2rem
+    gap:1.5rem;
+    padding-top: .5em;
+    
+
 }
 
 .nav{
-border:1px solid blue;
+border:1px solid lightgray ;
+width: 80vw;
+margin: 0 auto;
+}
 
+.home{
+
+    line-height: 3em;
 }
