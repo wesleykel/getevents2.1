@@ -27,8 +27,8 @@ const FavDisplayCard = ({picture, heading , text , link, deleteFav ,valuelink, v
 <a href={link} rel="noreferrer" target="_blank" > click to purchase tickets</a>
 <button data-id={valueId} data-text={valueText} data-image={valueImage} data-link={valuelink} type='submit' onClick={deleteFav}>{buttonText}</button>
 <TwitterShareButton
-    url={valuelink}
-    options={{ text: `Check out ${valueId} event I found on Get Events` , via: 'https://get-events.netlify.app' }}
+    url={link}
+    options={{ text: `Check out ${valueText} event I found on Get Events` , via: 'https://get-events.netlify.app' }}
   />
 
 </div>
