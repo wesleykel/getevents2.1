@@ -1,6 +1,6 @@
 import React from 'react'
 import style from "./SearchBar.module.css"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
 //import { useNavigate , Redirect } from "react-router-dom"
@@ -14,7 +14,7 @@ const Searchbar = () => {
 
 const {user}= useAuth0()  
 const  [location ,setLocation] = useState("London") 
-const  [event , setEvent] = useState("Classical")
+const  [event , setEvent] = useState("")
 const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
 const [buttonText, setButtonText]=useState("Add to favourites")
@@ -24,12 +24,12 @@ const [displayMessage, setDisplayMessage] =useState("")
  
     
 function getLocation(e){
-       
+      
 setLocation(e.target.value)
 
     }
 function getEvent(e){
-        
+         
 setEvent(e.target.value)
         
         
@@ -64,15 +64,16 @@ setActive(false)
 }
 
 }
-console.log(change.length)
+
 console.log(location)
 console.log(event)
-//useEffect(()=>{
 
-  // fetchPost() 
-//},[])
+/*useEffect(()=>{
+   fetchPost() 
+},[])*/
 
   
+
 async function updateFavs(e){
       
  if(!user){
@@ -127,7 +128,7 @@ Event:
 
       <SearchBarResults message={displayMessage}/> 
 <div className={style.picContainer}>
-        <img  src={flyer}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
+       <img  src={flyer}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
      </div>
       <div className={style.grid}>
        {change.map((item,index)=>{

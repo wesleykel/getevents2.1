@@ -12,12 +12,9 @@ import Navbar from '../components/4Navbar';
 function App() {
   return (
 <div className='App'>
-
 <Title/>
-
 <Navbar/>
 <Searchbar/>
-
 </div>
   );
 }
