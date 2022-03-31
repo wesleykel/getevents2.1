@@ -1,13 +1,14 @@
 import React from 'react'
 import style from "./SearchBar.module.css"
 import { useState } from 'react'
-import flyer from "./White Minimalist Music Part Instagram Post.png"
+//import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
 import { useAuth0 } from "@auth0/auth0-react";
 import SearchBarResults from '../6SearchResultsBar'
 import AddedToFavouriteDisplay from '../10AddedFavourite'
 import { Input } from '@chakra-ui/react'
 import { Button, ButtonGroup } from '@chakra-ui/react'
+import festivalPic from "./festival.jpeg"
 
 
 const Searchbar = () => {
@@ -62,7 +63,7 @@ setChange(data._embedded.events)
 
 setEvent("")
 setActive(false)
- setDisplayMessage(` Results for your search : ${location} and ${event}`)
+ setDisplayMessage(` Results for your search : ${location} & ${event}`)
 }
 
 }
@@ -127,10 +128,10 @@ Event or Artist:
 
        </form>
 
-  <SearchBarResults message={displayMessage}/> 
+  {(displayMessage)?<SearchBarResults message={displayMessage}/>:null }
   {(buttonValue === true)?<div className={style.emptyDivPadding}></div> :<AddedToFavouriteDisplay favToAdded={savedMessage}></AddedToFavouriteDisplay> }
 <div className={style.picContainer}>
-       <img  src={flyer}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
+       <img src={festivalPic}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
      </div>
       <div className={style.grid}>
        {change.map((item,index)=>{

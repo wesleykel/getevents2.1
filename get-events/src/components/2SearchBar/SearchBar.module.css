@@ -25,16 +25,16 @@
 .banner{
 
 
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
-    height: 100vh;
+    height:auto;
 }
 
 
 
 .picContainer{
    /* border: 1px  solid green;*/
-    width: fit-content;
+    width: 80vw;
     margin: 0 auto;
 
 }
@@ -58,4 +58,8 @@ gap:3rem
 .emptyDivPadding{
 
     padding: .6em;
+}
+.festival{
+
+    width:80vw;
 }

@@ -6,20 +6,22 @@
 
 .home{
 
-
-
+  /*border: 1px solid pink;*/
+  width: fit-content;
+  margin: 0 auto;
 }
 h1 {
 padding-top:1em ;
-    /*border: 1px solid pink;*/
+  
     font-size: 6rem;
-    padding-left: 1rem;
-    padding-bottom: .3em;
+    /*padding-left: 1rem;*/
+    padding-bottom: .1em;
+    margin: 0 auto;
 }
 
 h3{
     font-size: 2rem;
     /*border: 1px solid brown;*/
-    padding-left: 1.5rem;
+   /* padding-left: 1.5rem;*/
     padding-bottom: 1em;
 }
