@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import SearchBarResults from '../6SearchResultsBar'
 import AddedToFavouriteDisplay from '../10AddedFavourite'
 import { Input } from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button} from '@chakra-ui/react'
 import festivalPic from "./festival.jpeg"
 
 

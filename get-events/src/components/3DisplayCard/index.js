@@ -1,7 +1,7 @@
 import React from 'react'
 import NewModal from '../9ReactModal'
 import style from "./DisplayCard.module.css"
-import { Button, ButtonGroup ,Link} from '@chakra-ui/react'
+import { Button,Link} from '@chakra-ui/react'
 //import { Link } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
