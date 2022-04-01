@@ -3,7 +3,7 @@ import { Link as ReachLink } from "react-router-dom"
 import React from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import UserProfile from "../5UserProfile";
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button} from '@chakra-ui/react'
 
 //import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Link } from '@chakra-ui/react'
