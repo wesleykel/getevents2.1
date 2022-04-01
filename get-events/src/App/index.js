@@ -14,6 +14,7 @@ function App() {
 <div className='App'>
 <Title/>
 <Navbar/>
+<div className='padding'></div>
 <Searchbar/>
 </div>
   );

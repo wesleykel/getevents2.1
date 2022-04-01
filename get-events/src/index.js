@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import  {Auth0Provider} from "@auth0/auth0-react"
-
+import { ChakraProvider } from '@chakra-ui/react'
 import Favourites from './routes/favourites';
 
 ReactDOM.render(
@@ -18,6 +18,7 @@ ReactDOM.render(
     clientId="PwhMCppQLrysfIe4XHFlDMkr2BzaOefZ"
     redirectUri={`${window.location.origin}`}
   >
+   <ChakraProvider>
   <Routes>
    <Route path="/" element={<App />}/>
    
@@ -25,6 +26,7 @@ ReactDOM.render(
    <Route path="favourites" element={<Favourites/>}/>
 
  </Routes>
+ </ChakraProvider>
  </Auth0Provider>
   </React.StrictMode>
   </BrowserRouter>,

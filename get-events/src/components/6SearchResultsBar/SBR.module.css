@@ -1,8 +1,11 @@
 .wrapper{
 
-border:1px solid  darkgreen;
+/*border:.5px solid lightgray; this is for the  middle box*/
 display:flex;
 flex-direction: row;
 justify-content: center;
 padding:1rem;
+background-color: rgba(0, 100, 0, 0.198);
+width: fit-content;
+margin: 0 auto;
 }

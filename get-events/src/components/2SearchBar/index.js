@@ -1,13 +1,14 @@
 import React from 'react'
 import style from "./SearchBar.module.css"
 import { useState } from 'react'
-import flyer from "./White Minimalist Music Part Instagram Post.png"
+//import flyer from "./White Minimalist Music Part Instagram Post.png"
 import DisplayCard from '../3DisplayCard'
-//import { useNavigate , Redirect } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react";
 import SearchBarResults from '../6SearchResultsBar'
-//import favourites from '../../routes/favourites'
-
+import AddedToFavouriteDisplay from '../10AddedFavourite'
+import { Input } from '@chakra-ui/react'
+import { Button, ButtonGroup } from '@chakra-ui/react'
+import festivalPic from "./festival.jpeg"
 
 
 const Searchbar = () => {
@@ -19,9 +20,11 @@ const  [isActive , setActive] = useState("true")
 const [change , setChange] = useState([])
 const [buttonText, setButtonText]=useState("Add to favourites")
 const [displayMessage, setDisplayMessage] =useState("")
-//let  navigate = useNavigate()
+const [buttonValue ,setButtonValue] = useState(true)
+const [savedMessage ,setSavedMessage] =useState("")
+
  
- 
+
     
 function getLocation(e){
       
@@ -57,10 +60,10 @@ return
 
   }
 setChange(data._embedded.events)    
-//setLocation("")
+
 setEvent("")
 setActive(false)
- setDisplayMessage(` Results for your search : ${location} and ${event}`)
+ setDisplayMessage(` Results for your search : ${location} & ${event}`)
 }
 
 }
@@ -68,9 +71,7 @@ setActive(false)
 console.log(location)
 console.log(event)
 
-/*useEffect(()=>{
-   fetchPost() 
-},[])*/
+
 
   
 
@@ -94,30 +95,31 @@ body: JSON.stringify({
 
 
 }).then(()=>{
-console.log(user.nickname)
+setSavedMessage(e.target.dataset.text)
+setButtonValue(false)
+setTimeout(() => {  setButtonValue(true); }, 3000)
   console.log("new fav added")  
 return 
 })
 
                 }
     
-    
+  console.log(buttonValue)  
     return (
          <div className={style.wrapper}>
          <form className={style.searchForm}>
         
          <label>
-Location:
-        <input  type="text" onChange={getLocation} value={location} />  
+City:
+        <Input  border="1px" borderColor="green.500" size='sm'  htmlSize={20} width='auto' placeholder='Search for your city'    type="text" onChange={getLocation} value={location} />  
          </label>   
 
          <label>
-Event:
-         <input type="text" onChange={getEvent} value={event} />  
+Event or Artist:
+         <Input  border="1px" borderColor="green.500"   size='sm'  htmlSize={20} width='auto' placeholder='Search for an artist'  type="text" onChange={getEvent} value={event} />  
 </label>  
 
- <button type='submit'onClick={fetchPost} >Submit</button>
-
+ <Button colorScheme='green' size="md" type='submit'onClick={fetchPost} >Search</Button>
 
 
 
@@ -125,10 +127,11 @@ Event:
 
 
        </form>
-
-      <SearchBarResults message={displayMessage}/> 
+<div className={style.searchBarPad}></div>
+  {(displayMessage)?<SearchBarResults message={displayMessage}/>:null }
+  {(buttonValue === true)?<div className={style.emptyDivPadding}></div> :<AddedToFavouriteDisplay favToAdded={savedMessage}></AddedToFavouriteDisplay> }
 <div className={style.picContainer}>
-       <img  src={flyer}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
+       <img src={festivalPic}  alt="dancingCrowd" id={style.banner} className={isActive? style.banner:style.noBanner}></img>
      </div>
       <div className={style.grid}>
        {change.map((item,index)=>{
