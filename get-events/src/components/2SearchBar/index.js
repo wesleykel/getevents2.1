@@ -111,15 +111,15 @@ return
         
          <label>
 City:
-        <Input size='sm'  htmlSize={20} width='auto' placeholder='Search for your city'    type="text" onChange={getLocation} value={location} />  
+        <Input  border="1px" borderColor="green.500" size='sm'  htmlSize={20} width='auto' placeholder='Search for your city'    type="text" onChange={getLocation} value={location} />  
          </label>   
 
          <label>
 Event or Artist:
-         <Input size='sm'  htmlSize={20} width='auto' placeholder='Search for an artist'  type="text" onChange={getEvent} value={event} />  
+         <Input  border="1px" borderColor="green.500"   size='sm'  htmlSize={20} width='auto' placeholder='Search for an artist'  type="text" onChange={getEvent} value={event} />  
 </label>  
 
- <Button colorScheme='green' size="md" type='submit'onClick={fetchPost} >Submit</Button>
+ <Button colorScheme='green' size="md" type='submit'onClick={fetchPost} >Search</Button>
 
 
 
@@ -127,7 +127,7 @@ Event or Artist:
 
 
        </form>
-
+<div className={style.searchBarPad}></div>
   {(displayMessage)?<SearchBarResults message={displayMessage}/>:null }
   {(buttonValue === true)?<div className={style.emptyDivPadding}></div> :<AddedToFavouriteDisplay favToAdded={savedMessage}></AddedToFavouriteDisplay> }
 <div className={style.picContainer}>

@@ -2,9 +2,9 @@
 
     display: flex;
     flex-direction: row;
-    border:1px lightgray solid;
-    width:fit-content;
-    gap:2rem;
+    /*border:1px lightgray solid;*/
+    /*width:fit-content;*/
+    gap:.5rem;
     align-items: center;
     height: 3rem;
 
@@ -13,6 +13,18 @@
 
 .wrapper img{
 
-height: 3em;
+height: 3.6em;
+margin-bottom: .7em;
+}
+
+
+@media (max-width:760px) {
+
+
+.loggedInText{
+font-size: .7em;
+
+}
+
 
 }

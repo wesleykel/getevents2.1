@@ -16,7 +16,7 @@ const UserProfile = () => {
         
         <div className={style.wrapper}>
         <img src={user.picture} alt={user.name} />
-        <p>Logged in as:{user.name}</p>
+        <p className={style.loggedInText}>Logged in as:{user.name}</p>
 
         </div>
      ) )
