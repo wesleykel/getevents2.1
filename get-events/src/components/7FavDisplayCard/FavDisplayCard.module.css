@@ -1,7 +1,7 @@
 .wrapper{
 
 
-    border: 1px solid black;
+    border: 1px solid lightgray;
     width: fit-content;
 }
 
@@ -11,10 +11,36 @@ height:15rem;
     width:30rem;
 }
 
-.textGrid{
 
 
-    border:1px solid blue;
-    display:grid;
-    gap:1rem;
-}
+
+.image{
+
+    height:15rem;
+        width:28rem;
+    }
+    
+    .textGrid{
+    
+    
+        border:1px solid lightgray;
+        display:grid;
+        gap:1rem;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+    
+    .text{
+    /*border:blue 1px solid;*/
+    text-align: center;
+    padding-top: 1em;
+    font-weight: 700;
+    }
+
+    .linkBox{
+        padding-top: 1em;
+        /*border:1px solid red;*/
+        width: fit-content;
+        margin: 0 auto;
+        padding-bottom: 1em;
+    }
