@@ -15,6 +15,14 @@ For user Authentication I decided  to use Auth0, I had  used  this once before i
 I wanted  the Application to have a clean UI and UX almost minimal, I used  Chakra UI library for the Buttons  and Search Bar components, the styling could  be  improved, but I set myself  a  deadline  of 1 week to complete this  project.
 
 
+## To use
+
+You will need  your own API KEY from https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
+
+### Add the API KEY to a .env file  in the  root  of the  get-events folder "REACT_APP_APIKEY=Your API KEY"
+
+- npm i 
+- npm start 
 
 
 
