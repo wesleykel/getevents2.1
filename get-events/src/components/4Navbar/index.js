@@ -26,7 +26,7 @@ const Navbar = () => {
   <div className={style.wrapper3}>
         <Link as={ReachLink} color='green.500' className={style.home} to="/">Home</Link>  
         <Link as={ReachLink}  color='green.500'  className={style.home}  to="/favourites"> Favourites</Link>
-       {!user === true ? <Button marginRight="2" colorScheme='green' size="md" onClick={() => loginWithRedirect()}>Log In / Sign Up</Button> : <Button marginRight="2" colorScheme='green' size="md" onClick={() => logout({ returnTo: window.location.origin })}>Log Out </Button>}
+       {!user === true ? <Button marginRight="2" colorScheme='green' size="md" onClick={() => loginWithRedirect()}>Log In</Button> : <Button marginRight="2" colorScheme='green' size="md" onClick={() => logout({ returnTo: window.location.origin })}>Log Out </Button>}
    </div>
 
    </div>
