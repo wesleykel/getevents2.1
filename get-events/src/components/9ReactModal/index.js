@@ -14,7 +14,7 @@ const NewModal = () => {
     <div>
       <button onClick={onOpenModal}>Add Favourite</button>
       <Modal open={open} onClose={onCloseModal} center>
-        <h3>Please Log in to save to Your Favourites:)</h3>
+        <h3>Please sign up or login to save your Favourites</h3>
         <button onClick={() => loginWithRedirect()}>Log In</button>
       </Modal>
     </div>
