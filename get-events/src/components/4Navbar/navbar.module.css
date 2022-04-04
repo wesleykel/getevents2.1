@@ -39,15 +39,6 @@ margin: 0 auto;
 }
 @media (max-width:893px) {
 
-.nav{
- /*border:1px solid red; */  
-}
-
-.wrapper{
-    /*border:1px solid blue;   */
-
-
-}
 
 .wrapper2{
    /* border:1px solid brown;  */ 
@@ -69,7 +60,7 @@ text-align: center;
 
 .home{
 
-    line-height: 2em;
+    /*line-height: 2em;*/
 }
 
 }
