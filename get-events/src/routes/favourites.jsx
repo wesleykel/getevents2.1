@@ -17,7 +17,7 @@ const Favourites = () => {
   
 async  function fetchResults(){
 
-const  response = await fetch(`https://get-events2-1.herokuapp.com/favourites/new?user=${user.nickname}`)
+const  response = await fetch(`https://get-events-back1.onrender.com/favourites/new?user=${user.nickname}`)
 
 const data = await response.json()
 //console.log(data[0]._id)
@@ -34,7 +34,7 @@ fetchResults()
 
 async function deleteFavourite(e){
 let deletedUser = e.target.dataset.id
-  fetch(`https://get-events2-1.herokuapp.com/favourites/${deletedUser}`, {
+  fetch(`https://get-events-back1.onrender.com/favourites/${deletedUser}`, {
 method: "DELETE",
 headers:{"Content-Type": "application/json"},
 

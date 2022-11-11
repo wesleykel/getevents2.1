@@ -46,12 +46,12 @@ e.preventDefault()
 if(event === "" || location === ""){
 
 
-    console.log("please complete form")
+   // console.log("please complete form")
 }else{
     const response = await fetch (`https://app.ticketmaster.com/discovery/v2/events?city=${location}&keyword=${event}&apikey=${process.env.REACT_APP_APIKEY}`)
 
   const data = await response.json()
-console.log(data.page.totalElements)
+//console.log(data.page.totalElements)
   if(!data.page.totalElements){
 setLocation("")
 setEvent("")
@@ -68,8 +68,8 @@ setActive(false)
 
 }
 
-console.log(location)
-console.log(event)
+//console.log(location)
+//console.log(event)
 
 
 
@@ -82,7 +82,7 @@ setButtonText("Please login to save favourites")
     return
  }
 
-fetch(`https://get-events2-1.herokuapp.com/favourites`, {
+fetch(`https://get-events-back1.onrender.com/favourites`, {
 method: "POST",
 headers:{"Content-Type": "application/json"},
 body: JSON.stringify({
@@ -98,13 +98,13 @@ body: JSON.stringify({
 setSavedMessage(e.target.dataset.text)
 setButtonValue(false)
 setTimeout(() => {  setButtonValue(true); }, 3000)
-  console.log("new fav added")  
+  //console.log("new fav added")  
 return 
 })
 
                 }
     
-  console.log(buttonValue)  
+  //console.log(buttonValue)  
     return (
          <div className={style.wrapper}>
          <form className={style.searchForm}>

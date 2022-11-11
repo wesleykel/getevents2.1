@@ -9,7 +9,7 @@ const UserProfile = () => {
 
         return<div>Press Log in to continue</div>
     }
-    console.log(user)
+    //console.log(user)
     return (
         isAuthenticated &&(
 
